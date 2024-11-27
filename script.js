@@ -42,12 +42,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Adicionar animação de entrada aos elementos quando ficarem visíveis
-const observer = new IntersectionObserver((entries) => {
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const fadeInElements = document.querySelectorAll('.experience-container, .skill-container, .project-card');
+
+const fadeInObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
         }
     });
-});
+}, observerOptions);
 
-document.querySelectorAll('.skill-container, .project-card').forEach((el) => observer.observe(el));
+fadeInElements.forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    fadeInObserver.observe(element);
+});
