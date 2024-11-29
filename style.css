@@ -302,14 +302,56 @@ body {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     padding: 1.5rem;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.project-stats {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    color: #888;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
+}
+
+.project-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.github-link {
+    background: #24292e !important;
+}
+
+.demo-link {
+    background: #2ea44f !important;
 }
 
 /* Seção de Contato */
@@ -401,4 +443,48 @@ body {
 
 .experience-description {
     line-height: 1.8;
+}
+
+/* Estilização das barras de linguagem */
+.project-languages {
+    margin: 1rem 0;
+}
+
+.language-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+.language-name {
+    min-width: 80px;
+}
+
+.language-progress {
+    flex-grow: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.language-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Cores para as barras de linguagem */
+.language-fill.html { background-color: #e34f26; }
+.language-fill.css { background-color: #1572b6; }
+.language-fill.javascript { background-color: #f7df1e; }
+.language-fill.python { background-color: #3776ab; }
+.language-fill.cpp { background-color: #00599c; }
+
+.language-percentage {
+    min-width: 45px;
+    text-align: right;
+    font-size: 0.9rem;
+    color: #888;
 }
